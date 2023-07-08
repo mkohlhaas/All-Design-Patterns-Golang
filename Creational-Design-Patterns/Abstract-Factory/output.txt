@@ -1,0 +1,18 @@
+---  Adidas  ---
+Shoe
+Logo: adidas
+Size: 14
+
+Short
+Color: red
+Measure: 15
+
+---  Nike  ---
+Shoe
+Logo: nike
+Size: 16
+
+Short
+Color: blue
+Measure: 17
+
