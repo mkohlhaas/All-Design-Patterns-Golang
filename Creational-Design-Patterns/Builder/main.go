@@ -140,7 +140,7 @@ func (d *director) SetBuilder(b iBuilder) {
 ///////////////// Main //////////////////////////
 
 func main() {
-  // Director
+	// Director
 	director := NewDirector()
 
 	// Normal House
