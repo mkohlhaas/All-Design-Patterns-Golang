@@ -1,0 +1,4 @@
+Price of Veggie Mania pizza with Cheese Topping is 25.
+Price of Veggie Mania pizza with Tomato and Cheese Topping is 32.
+Price of Peppy Paneer with Cheese Topping is 30.
+Price of Peppy Paneer with Tomato and Cheese Topping is 37.
