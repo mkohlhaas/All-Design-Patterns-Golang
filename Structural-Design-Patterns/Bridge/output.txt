@@ -1,0 +1,8 @@
+Print request for mac.
+Printing by an HP Printer.
+Print request for mac.
+Printing by an EPSON Printer.
+Print request for windows.
+Printing by an HP Printer.
+Print request for windows.
+Printing by an EPSON Printer.
