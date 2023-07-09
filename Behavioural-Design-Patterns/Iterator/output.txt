@@ -1,0 +1,2 @@
+User is &{name:Michael age:30}.
+User is &{name:Thomas age:20}.
