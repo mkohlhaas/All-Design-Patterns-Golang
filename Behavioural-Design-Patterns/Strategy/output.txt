@@ -1,0 +1,8 @@
+Adding a: 1
+Adding b: 2
+Adding c: 3
+Evicting by LFU strategy.
+Adding d: 4
+Evicting by LRU strategy.
+Adding e: 5
+Evicting by FIFO strategy.
