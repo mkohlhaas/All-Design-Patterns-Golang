@@ -1,0 +1,3 @@
+module singleton-1
+
+go 1.20
