@@ -1,0 +1,9 @@
+SMS: generating random otp 0815
+SMS: saving otp: 0815 to cache
+SMS: sending sms: SMS OTP for login is 0815
+SMS: publishing metrics
+
+Email: generating random otp 4711
+Email: saving otp: 4711 to cache
+Email: sending email: Email OTP for login is 4711
+Email: publishing metrics
