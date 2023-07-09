@@ -1,0 +1,4 @@
+Passenger Train: Landing.
+Goods Train: Waiting.
+Passenger Train: Leaving.
+Goods Train: Arrival Permitted. Landing.
