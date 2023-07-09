@@ -1,0 +1,8 @@
+Item requestd.
+Money entered is ok.
+Dispensing Item.
+Adding 2 items.
+2 items added.
+Item requestd.
+Money entered is ok.
+Dispensing Item.
