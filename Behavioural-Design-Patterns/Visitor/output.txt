@@ -1,0 +1,6 @@
+Area for Square: 4.00
+Area for Circle: 28.27
+Area for Rectangle: 6.00
+Middle point coordinates for Square: x = 1.00, y = 1.00
+Middle point coordinates for Circle: x = 0.00, y = 0.00
+Middle point coordinates for Rectangle: x = 1.00, y = 1.50
