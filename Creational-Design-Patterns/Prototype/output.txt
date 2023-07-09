@@ -1,0 +1,13 @@
+Printing folder hierarchy:
+  Folder
+    Folder1
+        File1
+    File2
+    File3
+
+Printing cloned folder hierarchy:
+  Folder_clone
+    Folder1_clone
+        File1_clone
+    File2_clone
+    File3_clone
