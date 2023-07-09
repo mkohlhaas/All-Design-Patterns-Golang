@@ -1,0 +1,2 @@
+Total number of professors in College 1 is 9.
+Total number of professors in College 2 is 2.
