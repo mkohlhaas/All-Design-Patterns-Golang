@@ -1,0 +1,63 @@
+@startuml
+namespace main {
+    class areaCalculator << (S,Aquamarine) >> {
+        - area float64
+
+        - visitForSquare(s *square) 
+        - visitForCircle(c *circle) 
+        - visitForRectangle(r *rectangle) 
+
+    }
+    class circle << (S,Aquamarine) >> {
+        - radius float64
+
+        - accept(v visitor) 
+
+        + String() string
+
+    }
+    class middleCoordinates << (S,Aquamarine) >> {
+        - x float64
+        - y float64
+
+        - visitForSquare(s *square) 
+        - visitForCircle(c *circle) 
+        - visitForRectangle(r *rectangle) 
+
+    }
+    class rectangle << (S,Aquamarine) >> {
+        - l float64
+        - b float64
+
+        - accept(v visitor) 
+
+        + String() string
+
+    }
+    interface shape  {
+        - accept( visitor) 
+
+    }
+    class square << (S,Aquamarine) >> {
+        - side float64
+
+        - accept(v visitor) 
+
+        + String() string
+
+    }
+    interface visitor  {
+        - visitForSquare( *square) 
+        - visitForCircle( *circle) 
+        - visitForRectangle( *rectangle) 
+
+    }
+}
+
+"main.visitor" <|-- "main.areaCalculator"
+"main.shape" <|-- "main.circle"
+"main.visitor" <|-- "main.middleCoordinates"
+"main.shape" <|-- "main.rectangle"
+"main.shape" <|-- "main.square"
+
+@enduml

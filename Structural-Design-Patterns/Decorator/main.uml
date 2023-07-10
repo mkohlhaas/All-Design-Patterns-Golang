@@ -1,0 +1,34 @@
+@startuml
+namespace main {
+    class cheeseTopping << (S,Aquamarine) >> {
+        - pizza pizza
+
+        - getPrice() int
+
+    }
+    class peppyPaneer << (S,Aquamarine) >> {
+        - getPrice() int
+
+    }
+    interface pizza  {
+        - getPrice() int
+
+    }
+    class tomatoTopping << (S,Aquamarine) >> {
+        - pizza pizza
+
+        - getPrice() int
+
+    }
+    class veggieMania << (S,Aquamarine) >> {
+        - getPrice() int
+
+    }
+}
+
+"main.pizza" <|-- "main.cheeseTopping"
+"main.pizza" <|-- "main.peppyPaneer"
+"main.pizza" <|-- "main.tomatoTopping"
+"main.pizza" <|-- "main.veggieMania"
+
+@enduml

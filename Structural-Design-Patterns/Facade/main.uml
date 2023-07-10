@@ -1,0 +1,51 @@
+@startuml
+namespace main {
+    class account << (S,Aquamarine) >> {
+        - name string
+
+        - checkAccount(accountName string) *facadeError
+
+    }
+    class facadeError << (S,Aquamarine) >> {
+        - err error
+
+        + Unwrap() 
+
+    }
+    class ledger << (S,Aquamarine) >> {
+        - makeEntry(accountID string, txnType string, amount int) 
+
+    }
+    class notification << (S,Aquamarine) >> {
+        - sendWalletCreditNotification() 
+        - sendWalletDebitNotification() 
+
+    }
+    class securityCode << (S,Aquamarine) >> {
+        - code int
+
+        - checkCode(incomingCode int) *facadeError
+
+    }
+    class wallet << (S,Aquamarine) >> {
+        - balance int
+
+        - creditBalance(amount int) 
+        - debitBalance(amount int) *facadeError
+
+    }
+    class walletFacade << (S,Aquamarine) >> {
+        - wallet *wallet
+        - account *account
+        - securityCode *securityCode
+        - notification *notification
+        - ledger *ledger
+
+        - addMoneyToWallet(accountID string, securityCode int, amount int) *facadeError
+        - deductMoneyFromWallet(accountID string, securityCode int, amount int) *facadeError
+
+    }
+}
+
+
+@enduml

@@ -1,0 +1,39 @@
+@startuml
+namespace main {
+    interface GunType  {
+        - isGun() 
+
+    }
+    class ak47 << (S,Aquamarine) >> {
+    }
+    class gun << (S,Aquamarine) >> {
+        - name string
+        - power int
+
+        - getName() string
+        - getPower() int
+
+    }
+    class gunType << (S,Aquamarine) >> {
+        - sz string
+
+        - isGun() 
+
+        + String() string
+
+    }
+    interface iGun  {
+        - getName() string
+        - getPower() int
+
+    }
+    class maverick << (S,Aquamarine) >> {
+    }
+}
+"main.gun" *-- "main.ak47"
+"main.gun" *-- "main.maverick"
+
+"main.iGun" <|-- "main.gun"
+"main.GunType" <|-- "main.gunType"
+
+@enduml

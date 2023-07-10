@@ -1,0 +1,77 @@
+@startuml
+namespace main {
+    class hasItemState << (S,Aquamarine) >> {
+        - vendingMachine *vendingMachine
+
+        - addItem(count int) *stateError
+        - requestItem() *stateError
+        - insertMoney(money int) *stateError
+        - dispenseItem() *stateError
+
+    }
+    class hasMoneyState << (S,Aquamarine) >> {
+        - vendingMachine *vendingMachine
+
+        - requestItem() *stateError
+        - addItem(count int) *stateError
+        - insertMoney(money int) *stateError
+        - dispenseItem() *stateError
+
+    }
+    class itemRequestedState << (S,Aquamarine) >> {
+        - vendingMachine *vendingMachine
+
+        - addItem(count int) *stateError
+        - requestItem() *stateError
+        - insertMoney(money int) *stateError
+        - dispenseItem() *stateError
+
+    }
+    class noItemState << (S,Aquamarine) >> {
+        - vendingMachine *vendingMachine
+
+        - addItem(count int) *stateError
+        - requestItem() *stateError
+        - insertMoney(money int) *stateError
+        - dispenseItem() *stateError
+
+    }
+    interface state  {
+        - addItem( int) *stateError
+        - requestItem() *stateError
+        - insertMoney(money int) *stateError
+        - dispenseItem() *stateError
+
+    }
+    class stateError << (S,Aquamarine) >> {
+        - err error
+
+        + Unwrap() 
+
+    }
+    class vendingMachine << (S,Aquamarine) >> {
+        - hasItem state
+        - itemRequested state
+        - hasMoney state
+        - noItem state
+        - currentState state
+        - itemCount int
+        - itemPrice int
+
+        - incrementItemCount(count int) 
+        - addItem(count int) *stateError
+        - requestItem() *stateError
+        - insertMoney(money int) *stateError
+        - dispenseItem() *stateError
+        - setState(s state) 
+
+    }
+}
+
+"main.state" <|-- "main.hasItemState"
+"main.state" <|-- "main.hasMoneyState"
+"main.state" <|-- "main.itemRequestedState"
+"main.state" <|-- "main.noItemState"
+"main.state" <|-- "main.vendingMachine"
+
+@enduml

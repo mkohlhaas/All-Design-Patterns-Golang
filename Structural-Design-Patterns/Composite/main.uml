@@ -1,0 +1,26 @@
+@startuml
+namespace main {
+    interface component  {
+        - search( string) 
+
+    }
+    class file << (S,Aquamarine) >> {
+        - name string
+
+        - search(keyword string) 
+
+    }
+    class folder << (S,Aquamarine) >> {
+        - components []component
+        - name string
+
+        - search(keyword string) 
+        - add(c component) 
+
+    }
+}
+
+"main.component" <|-- "main.file"
+"main.component" <|-- "main.folder"
+
+@enduml

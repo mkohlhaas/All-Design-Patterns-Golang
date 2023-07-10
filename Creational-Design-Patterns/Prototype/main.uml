@@ -1,0 +1,28 @@
+@startuml
+namespace main {
+    class file << (S,Aquamarine) >> {
+        - name string
+
+        - print(indentation string) 
+        - clone() inode
+
+    }
+    class folder << (S,Aquamarine) >> {
+        - children []inode
+        - name string
+
+        - print(indentation string) 
+        - clone() inode
+
+    }
+    interface inode  {
+        - print( string) 
+        - clone() inode
+
+    }
+}
+
+"main.inode" <|-- "main.file"
+"main.inode" <|-- "main.folder"
+
+@enduml

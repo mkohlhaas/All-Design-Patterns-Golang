@@ -1,0 +1,29 @@
+@startuml
+namespace main {
+    class connection << (S,Aquamarine) >> {
+        - id string
+
+        - getID() string
+
+    }
+    interface iPoolObject  {
+        - getID() string
+
+    }
+    class pool << (S,Aquamarine) >> {
+        - idle []iPoolObject
+        - active []iPoolObject
+        - capacity int
+        - mulock *sync.Mutex
+
+        - remove(target iPoolObject) error
+
+        + Loan() (iPoolObject, error)
+        + Receive(target iPoolObject) error
+
+    }
+}
+
+"main.iPoolObject" <|-- "main.connection"
+
+@enduml

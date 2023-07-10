@@ -1,0 +1,36 @@
+@startuml
+namespace main {
+    interface collection  {
+        - createIterator() iterator
+
+    }
+    interface iterator  {
+        - hasNext() bool
+        - getNext() *user
+
+    }
+    class user << (S,Aquamarine) >> {
+        - name string
+        - age int
+
+    }
+    class userCollection << (S,Aquamarine) >> {
+        - users []*user
+
+        - createIterator() iterator
+
+    }
+    class userIterator << (S,Aquamarine) >> {
+        - index int
+        - users []*user
+
+        - hasNext() bool
+        - getNext() *user
+
+    }
+}
+
+"main.collection" <|-- "main.userCollection"
+"main.iterator" <|-- "main.userIterator"
+
+@enduml

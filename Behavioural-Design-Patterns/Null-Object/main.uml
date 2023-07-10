@@ -1,0 +1,42 @@
+@startuml
+namespace main {
+    class college << (S,Aquamarine) >> {
+        - departments []department
+
+        - addDepartment(department string, numProf int) 
+        - getDepartment(departmentName string) department
+
+    }
+    class computerscience << (S,Aquamarine) >> {
+        - numberOfProfessors int
+
+        - getNumberOfProfessors() int
+        - getName() string
+
+    }
+    interface department  {
+        - getNumberOfProfessors() int
+        - getName() string
+
+    }
+    class mechanical << (S,Aquamarine) >> {
+        - numberOfProfessors int
+
+        - getNumberOfProfessors() int
+        - getName() string
+
+    }
+    class nullDepartment << (S,Aquamarine) >> {
+        - numberOfProfessors int
+
+        - getNumberOfProfessors() int
+        - getName() string
+
+    }
+}
+
+"main.department" <|-- "main.computerscience"
+"main.department" <|-- "main.mechanical"
+"main.department" <|-- "main.nullDepartment"
+
+@enduml

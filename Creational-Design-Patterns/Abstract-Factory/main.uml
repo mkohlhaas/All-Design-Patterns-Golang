@@ -1,0 +1,76 @@
+@startuml
+namespace main {
+    interface Brand  {
+        - isBrand() 
+
+    }
+    class adidasFactory << (S,Aquamarine) >> {
+        - makeShoe() iShoe
+        - makeShort() iShort
+
+    }
+    class adidasShoe << (S,Aquamarine) >> {
+    }
+    class adidasShort << (S,Aquamarine) >> {
+    }
+    class brand << (S,Aquamarine) >> {
+        - sz string
+
+        - isBrand() 
+
+        + String() string
+
+    }
+    interface iShoe  {
+        - getLogo() string
+        - getSize() int
+
+    }
+    interface iShort  {
+        - getColor() string
+        - getMeasure() int
+
+    }
+    interface iSportsFactory  {
+        - makeShoe() iShoe
+        - makeShort() iShort
+
+    }
+    class nikeFactory << (S,Aquamarine) >> {
+        - makeShoe() iShoe
+        - makeShort() iShort
+
+    }
+    class nikeShoe << (S,Aquamarine) >> {
+    }
+    class nikeShort << (S,Aquamarine) >> {
+    }
+    class shoe << (S,Aquamarine) >> {
+        - logo string
+        - size int
+
+        - getLogo() string
+        - getSize() int
+
+    }
+    class short << (S,Aquamarine) >> {
+        - color string
+        - measure int
+
+        - getColor() string
+        - getMeasure() int
+
+    }
+}
+"main.shoe" *-- "main.adidasShoe"
+"main.short" *-- "main.adidasShort"
+"main.shoe" *-- "main.nikeShoe"
+"main.short" *-- "main.nikeShort"
+
+"main.iSportsFactory" <|-- "main.adidasFactory"
+"main.Brand" <|-- "main.brand"
+"main.iSportsFactory" <|-- "main.nikeFactory"
+"main.iShoe" <|-- "main.shoe"
+"main.iShort" <|-- "main.short"
+
+@enduml

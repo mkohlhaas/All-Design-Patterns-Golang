@@ -1,0 +1,40 @@
+@startuml
+namespace main {
+    class email << (S,Aquamarine) >> {
+        - genRandomOTP(len int) string
+        - saveOTPCache(otp string) 
+        - getMessage(otp string) string
+        - sendNotification(message string) error
+        - publishMetric() 
+
+    }
+    interface iOTP  {
+        - genRandomOTP( int) string
+        - saveOTPCache( string) 
+        - getMessage( string) string
+        - sendNotification( string) error
+        - publishMetric() 
+
+    }
+    class otp << (S,Aquamarine) >> {
+        - iOTP iOTP
+
+        - genAndSendOTP(otpLength int) error
+
+    }
+    class sms << (S,Aquamarine) >> {
+        - genRandomOTP(len int) string
+        - saveOTPCache(otp string) 
+        - getMessage(otp string) string
+        - sendNotification(message string) error
+        - publishMetric() 
+
+    }
+}
+"main.otp" *-- "main.email"
+"main.otp" *-- "main.sms"
+
+"main.iOTP" <|-- "main.email"
+"main.iOTP" <|-- "main.sms"
+
+@enduml

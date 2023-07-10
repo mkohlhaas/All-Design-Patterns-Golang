@@ -1,0 +1,37 @@
+@startuml
+namespace main {
+    class cache << (S,Aquamarine) >> {
+        - storage <font color=blue>map</font>[string]string
+        - evictionAlgo evictionAlgo
+        - capacity int
+        - maxCapacity int
+
+        - setEvictionAlgo(e evictionAlgo) 
+        - add(key string, value string) 
+        - get(key string) 
+        - evict() 
+
+    }
+    interface evictionAlgo  {
+        - evict(c *cache) 
+
+    }
+    class fifo << (S,Aquamarine) >> {
+        - evict(c *cache) 
+
+    }
+    class lfu << (S,Aquamarine) >> {
+        - evict(c *cache) 
+
+    }
+    class lru << (S,Aquamarine) >> {
+        - evict(c *cache) 
+
+    }
+}
+
+"main.evictionAlgo" <|-- "main.fifo"
+"main.evictionAlgo" <|-- "main.lfu"
+"main.evictionAlgo" <|-- "main.lru"
+
+@enduml
