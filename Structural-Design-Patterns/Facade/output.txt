@@ -1,0 +1,17 @@
+Start creating account.
+Account created.
+--------------------------------------------------------
+Start adding money to wallet.
+Account verified.
+Security code verified.
+Wallet balance added successfully.
+Sending wallet credit notification.
+Make ledger entry for account id 'abc' with txn type 'credit' for amount 10.
+--------------------------------------------------------
+Start debiting money from wallet.
+Account verified.
+Security code verified.
+Wallet balance is sufficient.
+Sending wallet debit notification.
+Make ledger entry for account id 'abc' with txn type 'debit' for amount 5.
+--------------------------------------------------------
