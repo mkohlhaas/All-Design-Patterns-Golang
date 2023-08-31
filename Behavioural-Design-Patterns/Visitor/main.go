@@ -68,18 +68,20 @@ type areaCalculator struct {
 	area float64
 }
 
+var _ visitor = &areaCalculator{}
+
 func (a *areaCalculator) visitForSquare(s *square) {
-  a.area = s.side * s.side
+	a.area = s.side * s.side
 	fmt.Printf("Area for %s: %0.2f\n", s, a.area)
 }
 
 func (a *areaCalculator) visitForCircle(c *circle) {
-  a.area = math.Pi * c.radius * c.radius
+	a.area = math.Pi * c.radius * c.radius
 	fmt.Printf("Area for %s: %0.2f\n", c, a.area)
 }
 
 func (a *areaCalculator) visitForRectangle(r *rectangle) {
-  a.area = r.b * r.l
+	a.area = r.b * r.l
 	fmt.Printf("Area for %s: %0.2f\n", r, a.area)
 }
 
@@ -90,43 +92,56 @@ type middleCoordinates struct {
 	y float64
 }
 
+var _ visitor = &middleCoordinates{}
+
 func (mc *middleCoordinates) visitForSquare(s *square) {
-  mc.x = s.side / 2.0
-  mc.y = s.side / 2.0
+	mc.x = s.side / 2.0
+	mc.y = s.side / 2.0
 	fmt.Printf("Middle point coordinates for %s: x = %0.2f, y = %0.2f\n", s, mc.x, mc.y)
 }
 
 func (mc *middleCoordinates) visitForCircle(c *circle) {
-  mc.x = 0
-  mc.y = 0
+	mc.x = 0
+	mc.y = 0
 	fmt.Printf("Middle point coordinates for %s: x = %0.2f, y = %0.2f\n", c, mc.x, mc.y)
 }
 
 func (mc *middleCoordinates) visitForRectangle(r *rectangle) {
-  mc.x = r.l / 2.0
-  mc.y = r.b / 2.0
+	mc.x = r.l / 2.0
+	mc.y = r.b / 2.0
 	fmt.Printf("Middle point coordinates for %s: x = %0.2f, y = %0.2f\n", r, mc.x, mc.y)
 }
 
 ////////////// Main //////////////////////////////
 
 func main() {
-  // create shapes
+	// create shapes
 	square := &square{side: 2}
 	circle := &circle{radius: 3}
 	rectangle := &rectangle{l: 2, b: 3}
 
-  // create area calculator
+	// create area calculator
 	areaCalculator := &areaCalculator{}
 
-  // calculate areas
+	fmt.Println("Calculate areas:")
 	square.accept(areaCalculator)
 	circle.accept(areaCalculator)
 	rectangle.accept(areaCalculator)
 
-  // create middle coordinates calculator
+	fmt.Println("\nCreate middle coordinates calculator:")
 	mcCalculator := &middleCoordinates{}
 	square.accept(mcCalculator)
 	circle.accept(mcCalculator)
 	rectangle.accept(mcCalculator)
+
+	fmt.Println("\nLooping over shapes:")
+	shapes := []shape{square, circle, rectangle}
+	for _, shape := range shapes {
+		shape.accept(areaCalculator)
+	}
+
+	fmt.Println("\nLooping over shapes:")
+	for _, shape := range shapes {
+		shape.accept(mcCalculator)
+	}
 }
